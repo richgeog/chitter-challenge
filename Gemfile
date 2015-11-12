@@ -1,14 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
-gem 'bcrypt'
-gem 'database_cleaner'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-timestamps'
-gem 'rspec-sinatra'
+# gem 'rspec-sinatra'
 gem 'sinatra'
-gem 'sinatra-flash'
+gem 'database_cleaner'
 
 group :development, :test do
   gem 'capybara'
@@ -19,3 +17,4 @@ group :development, :test do
   gem 'coveralls', require: false
 end
 
+gem "codeclimate-test-reporter", group: :test, require: nil

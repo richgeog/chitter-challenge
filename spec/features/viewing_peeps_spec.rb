@@ -1,12 +1,11 @@
-feature 'Viewing peeps' do
+feature 'Viewing links' do
 
-  scenario 'I can see existing peeps on the peeps feed page' do
-    Peep.create(user: 'Code_Hero', peeps: 'First peep on chitter')
+  scenario 'I can see exisiting links on the links page' do
+    Peep.create(peeps: 'this is a test', time: '22/10/15 10:59am')
     visit '/peeps'
     expect(page.status_code).to eq 200
     within 'ul#peeps' do
-      expect(page).to have_content('First peep on chitter')
+      expect(page).to have_content 'this is a test'
     end
   end
-
 end
