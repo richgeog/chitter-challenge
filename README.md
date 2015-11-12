@@ -91,14 +91,14 @@ $ rspec
 
 * Database created
 * Welcome page created
+* Add a timestamp to peeps when they are created
 
 ## Still to do
 
 * Allow users to sign up with a username and email that is unique
 * Allow users to sign in and out once a user has been created
-* Allow users to view peeps when they are nit signed in
+* Allow users to view peeps when they are not signed in
 * Allow users to post peeps on a timeline only when signed in
-* Add a timestamp to peeps when they are created
 * View all peeps in reverse chronological order
 * Allow users to like peeps
 * Create associations between peeps, users and likes
