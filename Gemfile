@@ -10,7 +10,7 @@ gem 'sinatra'
 
 group :development, :test do
   gem 'capybara'
-  gem 'cucumber'
+  # gem 'cucumber'
   gem 'rspec'
   gem 'rubocop'
   gem 'rubocop-rspec'
