@@ -21,8 +21,8 @@ feature 'user sign up' do
   end
 
   scenario 'password that does not match' do
-    expect { sign_up(password_confirmation: 'wrong')}.not_to change(User, :count)
-    expect(page).to eq '/users'
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
     expect(page).to have_content 'Password and password confirmation do not match'
   end
 end
