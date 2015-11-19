@@ -64,3 +64,19 @@ feature 'users can log out' do
 		expect(page).not_to have_content('Welcome, rich@gmail.com')
 	end
 end
+
+feature 'Resetting password' do
+
+	scenario 'when i forget my password i can see a link to reset it' do
+		visit '/sessions/new'
+		click_link 'Forgotten password'
+		expect(page).to have_content("Please enter your email address")
+	end
+
+	scenario 'when i enter my email i am told to check my inbox' do
+		visit 'users/recover'
+		fill_in 'email', with: 'rich@gmail.com'
+		click_button 'Submit'
+		expect(page).to have_content "Thanks, please check your inbox for the link"
+	end
+end

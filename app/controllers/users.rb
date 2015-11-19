@@ -18,4 +18,12 @@ class Chitter_Challenge < Sinatra::Base
     end
   end
 
+  get '/users/recover' do
+	"Please enter your email address"
+	erb :'users/recover'
+  end
+
+  post '/users/recover' do
+	erb :'users/acknowledgement'
+  end
 end
