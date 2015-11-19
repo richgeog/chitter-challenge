@@ -31,6 +31,6 @@ feature 'user sign up' do
   end
 
   scenario "I can't sign up with an invaild email address" do
-    expect { sign_up(email: 'false@gmail.com') }.not_to change(User, :count)
+    expect { sign_up(email: "false@gmail") }.not_to change(User, :count)
   end
 end

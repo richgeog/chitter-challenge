@@ -2,7 +2,7 @@
 
 <form action='/users' method='POST'>
   <label for='email'>
-    Email: <input name='email' type='text' value='<%= @user.email %>' placeholder='Email'>
+    Email: <input name='email' type='email' value='<%= @user.email %>' required placeholder='Email' >
   </label>
   <label for="password">
     Password: <input name='password' type='password' placeholder='Password'>
