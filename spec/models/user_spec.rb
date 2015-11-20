@@ -1,5 +1,5 @@
 describe User do
-	
+
 	let!(:user) do
 		User.create(email: 'rich@gmail.com',
 			    password: '12345678',
@@ -13,5 +13,9 @@ describe User do
 
 	it 'does not authenticate when given an incorrect password' do
 		expect(User.authenticate(user.email, 'wrong_password')).to be_nil
+	end
+
+	it 'saves a password recovery token when we generate a token' do
+		expect{user.generate_token}.to change{user.password_token}
 	end
 end
