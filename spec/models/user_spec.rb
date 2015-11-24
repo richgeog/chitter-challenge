@@ -18,4 +18,12 @@ describe User do
 	it 'saves a password recovery token when we generate a token' do
 		expect{user.generate_token}.to change{user.password_token}
 	end
+
+	it 'saves a password recovery token time when we generate a token' do
+		Timecop.freeze do
+			user.generate_token
+			expect(user.password_token_time).to eq Time.now
+		end
+	end
+
 end

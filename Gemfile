@@ -9,6 +9,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
+gem 'timecop', '~> 0.8.0'
 
 group :development, :test do
 	gem 'capybara'

@@ -6,6 +6,7 @@ require './app/app'
 require "codeclimate-test-reporter"
 require 'database_cleaner'
 require 'web_helper'
+require 'timecop'
 require_relative 'helpers/session'
 
 Capybara.app = Chitter_Challenge

@@ -30,4 +30,8 @@ class Chitter_Challenge < Sinatra::Base
 	end
 	erb :'users/acknowledgement'
   end
+
+  get '/users/reset_password' do
+	'Your token has expired'
+  end
 end
