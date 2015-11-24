@@ -34,9 +34,14 @@ class Chitter_Challenge < Sinatra::Base
   get '/users/reset_password' do
     @user = User.find_by_valid_token(params[:token])
     if(@user)
-      "Please enter your new password"
+      erb :'users/reset_password'
     else
       "Your token has expired"
     end
   end
+
+  patch '/users' do
+    redirect '/sessions/new'
+  end
 end
+

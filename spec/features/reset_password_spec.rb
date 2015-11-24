@@ -21,6 +21,15 @@ feature 'password reset' do
 		expect(page).to have_content 'Please enter your new password'
 	end
 
+  scenario 'it lets you enter a new password with a valid token' do
+    recover_password
+    visit("/users/reset_password?token=#{user.password_token}")
+    fill_in :password, with: 'newpassword'
+    fill_in :password_conformation, with: 'newpassword'
+    click_button 'Submit'
+    expect(page).to have_content("Please sign in")
+  end
+
   def recover_password
     visit '/users/recover'
     fill_in :email, with: 'rich@gmail.com'
