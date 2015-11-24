@@ -21,14 +21,34 @@ feature 'password reset' do
 		expect(page).to have_content 'Please enter your new password'
 	end
 
-  scenario 'it lets you enter a new password with a valid token' do
-    recover_password
-    visit("/users/reset_password?token=#{user.password_token}")
-    fill_in :password, with: 'newpassword'
-    fill_in :password_conformation, with: 'newpassword'
-    click_button 'Submit'
-    expect(page).to have_content("Please sign in")
-  end
+  # scenario 'it lets you enter a new password with a valid token' do
+  #   recover_password
+  #   visit("/users/reset_password?token=#{user.password_token}")
+  #   fill_in :password, with: 'newpassword'
+  #   fill_in :password_confirmation, with: 'newpassword'
+  #   click_button 'Submit'
+  #   expect(page).to have_content "Please sign in"
+  # end
+
+  # scenario 'it lets you sign in after a password reset' do
+  #   recover_password
+  #   visit("/users/reset_password?token=#{user.password_token}")
+  #   fill_in :password, with: 'newpassword'
+  #   fill_in :password_confirmation, with: 'newpassword'
+  #   click_button 'Submit'
+  #   sign_in(email: 'rich@gmail.com', password: 'newpassword')
+  #   expect(page).to have_content "Welcome, rich@gmail.com"
+  # end
+
+  # scenario 'it lets you know if you\'re passwords don\'t match' do
+  #   recover_password
+  #   visit("/users/reset_password?token=#{user.password_token}")
+  #   fill_in :password, with: 'newpassword'
+  #   fill_in :password_confirmation, with: 'wrongpassword'
+  #   click_button 'Submit'
+  #   expect(page).to have_content "Password does not match the confirmation"
+  # end
+
 
   def recover_password
     visit '/users/recover'

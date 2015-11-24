@@ -19,16 +19,16 @@ class Chitter_Challenge < Sinatra::Base
   end
 
   get '/users/recover' do
-	"Please enter your email address"
-	erb :'users/recover'
+    "Please enter your email address"
+    erb :'users/recover'
   end
 
   post '/users/recover' do
-	user = User.first(email: params[:email])
-	if user
-		user.generate_token
-	end
-	erb :'users/acknowledgement'
+	  user = User.first(email: params[:email])
+	  if user
+		  user.generate_token
+	  end
+	  erb :'users/acknowledgement'
   end
 
   get '/users/reset_password' do
@@ -41,7 +41,13 @@ class Chitter_Challenge < Sinatra::Base
   end
 
   patch '/users' do
-    redirect '/sessions/new'
+    user = User.find_by_valid_token(params[:token])
+    if user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+      redirect '/sessions/new'
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb :'users/reset_password'
+    end
   end
 end
 
