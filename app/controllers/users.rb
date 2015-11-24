@@ -32,6 +32,11 @@ class Chitter_Challenge < Sinatra::Base
   end
 
   get '/users/reset_password' do
-	'Your token has expired'
+    @user = User.find_by_valid_token(params[:token])
+    if(@user)
+      "Please enter your new password"
+    else
+      "Your token has expired"
+    end
   end
 end
