@@ -1,16 +1,17 @@
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 ENV["RACK_ENV"] ||= "test"
 require 'capybara/rspec'
 require './app/models/peep'
 require './app/models/user'
 require './app/app'
-require "codeclimate-test-reporter"
 require 'database_cleaner'
 require 'web_helper'
 require 'timecop'
 require_relative 'helpers/session'
 
 Capybara.app = Chitter_Challenge
-CodeClimate::TestReporter.start
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
