@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 
 gem 'bcrypt'
+gem 'cucumber'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-timestamps'
